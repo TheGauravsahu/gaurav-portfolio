@@ -1,5 +1,5 @@
 "use client"
-import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
+import { motion, MotionValue, useMotionTemplate, useMotionValue } from "framer-motion";
 
 interface ProjectCardProps {
     title: string;
@@ -11,7 +11,6 @@ interface ProjectCardProps {
   
 
 export default function ProjectCard({ title, description, href, icon, tags }:ProjectCardProps) {
-  // const tags = ["GitHub", "React", "JamStack"];
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
@@ -280,7 +279,6 @@ export default function ProjectCard({ title, description, href, icon, tags }:Pro
 
                 <svg
                   className="h-8 w-8 min-w-lg text-gray-900 dark:text-gray-100"
-                  class="w-6 h-6"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -499,9 +497,12 @@ export default function ProjectCard({ title, description, href, icon, tags }:Pro
   );
 }
 
-function HoverPattern({ mouseX, mouseY, ...gridProps }) {
-  let maskImage = useMotionTemplate`radial-gradient(300px at ${mouseX}px ${mouseY}px, white, transparent)`;
-  let style = { maskImage, WebkitMaskImage: maskImage };
+function HoverPattern({ mouseX, mouseY, }:{
+  mouseX: MotionValue;
+  mouseY: MotionValue;
+}) {
+  const maskImage = useMotionTemplate`radial-gradient(300px at ${mouseX}px ${mouseY}px, white, transparent)`;
+  const style = { maskImage, WebkitMaskImage: maskImage };
 
   return (
     <div className="pointer-events-none">
