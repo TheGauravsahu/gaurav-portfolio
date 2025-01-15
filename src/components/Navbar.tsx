@@ -1,6 +1,5 @@
 import {
   IconBrandGithub,
-  IconFolder,
   IconBolt,
   IconHome,
 } from "@tabler/icons-react";
