@@ -40,7 +40,7 @@ export default function About() {
         I&apos;m always striving to improve and grow as a human.
       </p>
       <p className="text-lg">
-        In my free time, I enjoy watching movies, especially those related to science fiction and thriller. I also love playing badmintion and somewhat cricket.
+        In my free time, I enjoy solving cube & watching movies, especially those related to science fiction and thriller. I also love playing different games like badminton, cricket.
       </p>
       <p className="text-lg">
         Traveling is another passion of mine. I love exploring new places, learning about different cultures, and meeting new people.
