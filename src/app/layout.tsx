@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/Footer";
-import SmoothScrolling from "@/components/SmoothScrolling";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -52,11 +51,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SmoothScrolling>
             <Navbar />
             <main className="h-full max-w-3xl  mx-auto">{children}</main>
             <Footer />
-          </SmoothScrolling>
         </ThemeProvider>
       </body>
     </html>
