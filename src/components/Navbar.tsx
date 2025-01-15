@@ -23,14 +23,6 @@ export default function Navbar() {
       ),
       href: "/about",
     },
-
-    {
-      title: "Projects",
-      icon: (
-        <IconFolder className="h-full w-full text-neutral-500 dark:text-neutral-300" />
-      ),
-      href: "/projects",
-    },
     {
       title: "GitHub",
       icon: (

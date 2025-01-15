@@ -5,11 +5,11 @@ import Link from "next/link";
 export default function Landing() {
   return (
     <div className="flex items-center justify-center gap-8 h-80 md:h-64 flex-col md:flex-row mt-4 md:mt-0 w-full">
-      <div className="aspect-square size-36 rounded-full bg-gradient-to-r from-[#0061B6] to-[#99A750] flex items-center justify-center">
+      <div className="aspect-square size-36 rounded-full bg-gradient-to-r from-[#0061B6] to-[#50a7a1] flex items-center justify-center">
         <div className="aspect-square size-[8.5rem] rounded-full bg-white flex items-center justify-center">
-          <div className="aspect-square size-32 rounded-full overflow-hidden object-center">
-            <Image className="bg-current dark:bg-[#121212]" src="/gaurav.jpg" width={200} height={200} alt="gaurav" />
-          </div>
+            <div className="aspect-square size-32 rounded-full overflow-hidden flex items-center justify-center">
+            <Image className="bg-current dark:bg-[#121212]" src="/raw-gs.jpg" width={200} height={200} alt="gaurav" />
+            </div>
         </div>
       </div>
 
@@ -17,7 +17,7 @@ export default function Landing() {
         <h1 className="text-xl md:text-2xl text-start font-semibold max-w-g mx-auto tracking-wide">
           Hey, I&apos;m Gaurav.
           <span className="opacity-60 ml-1">
-            A student at DPS Kaluahi, aspiring developer, and a lifelong
+            A passionate student and a lifelong
             learner.
           </span>
         </h1>

@@ -15,9 +15,6 @@ export default function Footer() {
         <Link prefetch={true} href="/">
           Home
         </Link>
-        <Link prefetch={true} href="/projects">
-          Projects
-        </Link>
         <Link prefetch={true} href="/about">
           About
         </Link>

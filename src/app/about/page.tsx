@@ -30,32 +30,30 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <div id="about" className="flex items-center justify-center h-full lg:min-h-screen">
+    <div id="about" className="flex items-center justify-center">
       <div className="max-w-4xl p-6 space-y-6">
-        <h1 className="text-2xl font-semibold">About Me</h1>
-        <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
+      <h1 className="text-2xl font-semibold">About Me</h1>
+      <hr className="w-full border-1 border-gray-200 dark:border-gray-800 mb-8" />
 
-        <p className="text-lg">
-          Hi! I&apos;m <span className="font-bold">Gaurav Sahu</span>, a
-          passionate full-stack web developer with a love for building modern
-          and user-friendly applications.
-        </p>
-        <p className="text-lg">
-          I specialize in the <span className="font-bold">MERN stack</span>, and
-          I&apos;m currently focused on creating dynamic web apps and exploring
-          new technologies. I enjoy bringing ideas to life with clean and
-          efficient code, with a strong emphasis on frontend design.
-        </p>
-        <p className="text-lg">
-          When I&apos;m not coding, you can find me learning new frameworks,
-          experimenting with <span className="font-bold">SvelteKit</span>, or
-          working on personal projects like, a YouTube clone, and an Instagram
-          clone.
-        </p>
-        <p className="text-lg">
-          I&apos;m always striving to improve and grow as a developer. If
-          you&apos;d like to collaborate or chat, feel free to reach out!
-        </p>
+      <p className="text-lg">
+        Hi! I&apos;m <span className="font-bold">Gaurav Sahu</span>, a student at <a target="_blank" href="https://dpskaluahi.com/">DPS Kaluahi</a>.
+      </p>
+      <p className="text-lg">
+        I have created this website for fun. I love trying new things. I&apos;m currently focused on my studies and exploring
+        new things.
+      </p>
+      <p className="text-lg">
+        I&apos;m always striving to improve and grow as a human.
+      </p>
+      <p className="text-lg">
+        In my free time, I enjoy watching movies, especially those related to science fiction and thriller. I also love playing badmintion and somewhat cricket.
+      </p>
+      <p className="text-lg">
+        Traveling is another passion of mine. I love exploring new places, learning about different cultures, and meeting new people.
+      </p>
+      <p className="text-lg">
+        I am also an avid music lover. I enjoy listening to a wide range of genres.
+      </p>
       </div>
     </div>
   );
