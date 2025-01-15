@@ -15,16 +15,10 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About - Gaurav Sahu",
     description:
-      "Hi, I'm Gaurav Sahu, a full-stack web developer. Read about my passion for coding, skills, and the technologies I love to work with.",
+      "Hi, I'm Gaurav Sahu.Read about my passion.",
     url: "https://gauravsahu.vercel.app/about",
     siteName: "Gaurav Sahu Portfolio",
     type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "About - Gaurav Sahu",
-    description:
-      "I'm Gaurav Sahu, a full-stack developer specializing in building impactful and modern web applications. Learn more about me here.",
   },
 };
 

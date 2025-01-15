@@ -14,7 +14,7 @@ export default function Landing() {
       </div>
 
       <div>
-        <h1 className="text-xl md:text-2xl text-start font-semibold max-w-g mx-auto tracking-wide">
+        <h1 className="text-xl md:text-2xl text-center md:text-start font-semibold max-w-g mx-auto tracking-wide">
           Hey, I&apos;m Gaurav.
           <span className="opacity-60 ml-1">
             A passionate student and a lifelong

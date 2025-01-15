@@ -7,21 +7,15 @@ import SmoothScrolling from "@/components/SmoothScrolling";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Gaurav Sahu - Student, Developer",
+  title: "Gaurav Sahu",
   description:
     "Passionate full-stack developer specializing in modern web technologies like the MERN stack. Explore my portfolio to see impactful projects and blogs.",
   keywords: [
     "Gaurav Sahu",
     "DPS Kaluahi",
-    "Full-stack developer",
-    "Web developer portfolio",
-    "JavaScript enthusiast",
-    "MERN stack developer",
-    "Frontend developer",
-    "Backend developer",
   ],
   openGraph: {
-    title: "Gaurav Sahu - Student, Developer",
+    title: "Gaurav Sahu - Student",
     description:
       "Discover the portfolio of Gaurav Sahu, a passionate full-stack web developer. Check out projects built with cutting-edge technologies.",
     url: "https://gauravsahu.vercel.app",
