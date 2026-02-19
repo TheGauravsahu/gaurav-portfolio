@@ -1,8 +1,7 @@
-import { Plus_Jakarta_Sans } from "next/font/google";
+import { DM_Sans, Instrument_Serif, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider";
-import Footer from "@/components/Footer";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -30,10 +29,26 @@ export const metadata: Metadata = {
   },
 };
 
-const jakarta = Plus_Jakarta_Sans({
+
+
+const instrumentSerif = Instrument_Serif({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-instrument-serif",
+});
+
+const playfairDisplay = Playfair_Display({
   subsets: ["latin"],
   weight: ["400", "500"],
+  variable: "--font-playfair-display",
+})
+
+const dmSans = DM_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  variable: "--font-dm-sans",
 });
+
 
 export default function RootLayout({
   children,
@@ -43,7 +58,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${jakarta.className} antialiased h-full w-full bg-slate-50 dark:bg-inherit`}
+        className={`${instrumentSerif.variable} ${dmSans.variable} ${playfairDisplay.variable} antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -51,9 +66,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-            <Navbar />
-            <main className="h-full max-w-3xl  mx-auto">{children}</main>
-            <Footer />
+          <Navbar />
+          <main className="h-full w-full ">
+            {children}</main>
         </ThemeProvider>
       </body>
     </html>
