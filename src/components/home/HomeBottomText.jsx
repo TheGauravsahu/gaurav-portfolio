@@ -4,8 +4,8 @@ import IndiaTime from "../common/IndiaTime";
 const HomeBottomText = () => {
   return (
     <div>
-      <div className="flex justify-end items-center absolute right-0 bottom-40">
-        <p className="text-white w-1/4 text-sm font-[font-lausanne-500]">
+      <div className="flex justify-end items-center absolute right-0 bottom-20 md:bottom-40">
+        <p className="text-white w-[70%] md:w-1/4 text-sm font-[font-lausanne-500]">
           &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
           &nbsp;&nbsp; Hi! I'm Gaurav Sahu, a student at DPS Kaluahi. I created
           this website for fun and as a way to explore my creativity and
@@ -19,7 +19,7 @@ const HomeBottomText = () => {
       </div>
 
       <div className="text-white  font-[font-lausanne-500] flex items-end justify-between uppercase">
-        <div>
+        <div className="hidden md:block">
           <IndiaTime />
         </div>
 

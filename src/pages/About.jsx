@@ -57,7 +57,7 @@ const About = () => {
       <div className="font-[font-lausanne-500] h-full w-full section-1 bg-[#FFFFFF] py-1">
         <div
           ref={imageDivRef}
-          className="absolute top-60 bg-red-800 left-[32vw] rounded-xl w-[15vw] h-[20vw] overflow-hidden"
+          className="absolute top-40 md:top-60 bg-red-800 left-[12vw] md:left-[32vw] rounded-xl w-[80vw] h-[50vh] md:w-[15vw] md:h-[20vw] overflow-hidden"
         >
           <img
             ref={imageRef}
@@ -76,8 +76,8 @@ const About = () => {
             </h1>
           </div>
 
-          <div className="flex items-center justify-end pr-12">
-            <p className="w-[50%] text-[3.5vw] leading-[4vw] tracking-tight">
+          <div className="flex items-center justify-end md:pr-12 px-4">
+            <p className="w-full md:w-[50%] text-[3.5vw] leading-[4vw] tracking-tight">
               &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
               &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; We’re inquisitive and
               open-minded, and we make sure creativity crowds out ego from every
@@ -88,8 +88,8 @@ const About = () => {
             </p>
           </div>
 
-          <div className="h-screen max-w-5xl mx-auto pt-42">
-            <div className="flex items-start gap-80 justify-start  text-xl">
+          <div className="h-screen max-w-5xl mx-auto pt-42 px-4">
+            <div className="flex items-start gap-30 md:gap-80 justify-start  text-xl">
               <h4>Expertise</h4>
               <ul>
                 <li>Strategy</li>
@@ -100,17 +100,17 @@ const About = () => {
               </ul>
             </div>
 
-            <div className="flex items-center gap-12 mt-32">
-              <p className="text-xl font-semibold w-1/3">
+            <div className="flex items-center flex-col md:flex-row gap-12 mt-32">
+              <p className="text-xl font-semibold w-full md:w-1/3">
                 Our Work_ Born in curiosity, raised by dedication and fed with a
                 steady diet of creativity.
               </p>
-              <p className="text-xl font-semibold w-1/3">
+              <p className="text-xl font-semibold w-full md:w-1/3">
                 Our Creative_ Simmering in an environment where talent can come
                 to a full boil. Encouraged to become the best versions of
                 ourselves.
               </p>
-              <p className="text-xl font-semibold w-1/3">
+              <p className="text-xl font-semibold w-full md:w-1/3">
                 Our Culture_ We’re open to each other. Period. The team works
                 together to create a space that makes us proud.
               </p>
