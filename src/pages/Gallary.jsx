@@ -46,7 +46,7 @@ const Gallary = () => {
       scrollTrigger: {
         trigger: ".img-container",
         start: "top 60%",
-        end: "top -200%",
+        end: "top -450%",
         scrub: true,
       },
     });
@@ -65,7 +65,7 @@ const Gallary = () => {
           {imgList.map((s, i) => (
             <div
               key={i}
-              className="group w-[49%] h-50 relative cursor-pointer hover:rounded-4xl overflow-hidden transition-all img-hero"
+              className="group w-[49%] h-20 md:h-50 relative cursor-pointer hover:rounded-4xl overflow-hidden transition-all img-hero"
             >
               <img
                 src={s}

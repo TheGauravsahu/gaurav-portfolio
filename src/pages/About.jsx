@@ -57,12 +57,13 @@ const About = () => {
       <div className="font-[font-lausanne-500] h-full w-full section-1 bg-[#FFFFFF] py-1">
         <div
           ref={imageDivRef}
-          className="absolute top-40 md:top-60 bg-red-800 left-[12vw] md:left-[32vw] rounded-xl w-[80vw] h-[50vh] md:w-[15vw] md:h-[20vw] overflow-hidden"
+          className="absolute top-40 md:top-60 bg-gray-500 left-[12vw] md:left-[32vw] rounded-xl w-[80vw] h-[50vh] md:w-[15vw] md:h-[20vw] overflow-hidden"
         >
           <img
             ref={imageRef}
             src={Img6}
             alt="Img_1"
+            loading="lazy"
             className="object-cover h-full w-full"
           />
         </div>

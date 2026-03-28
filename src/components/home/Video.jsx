@@ -9,6 +9,7 @@ const Video = () => {
         autoPlay
         muted
         src={CTAVid}
+        preload="metadata"
       />
     </div>
   );

@@ -6,7 +6,6 @@ import Navbar from "./components/common/Navbar";
 import FullScreenNav from "./components/common/FullScreenNav";
 import { ReactLenis } from "lenis/react";
 import Gallary from "./pages/Gallary";
-import Footer from "./components/common/Footer";
 
 const App = () => {
   return (
