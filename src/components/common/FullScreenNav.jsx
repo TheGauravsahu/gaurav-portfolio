@@ -9,7 +9,6 @@ import { useContext } from "react";
 import { ApplicationContext } from "../../context/AppContext";
 import { Link } from "react-router-dom";
 import IndiaTime from "./IndiaTime";
-import logo_white from "../../assets/logo/white.png";
 
 const FullScreenNav = () => {
   const fullNavLinkRef = useRef(null);
@@ -57,29 +56,29 @@ const FullScreenNav = () => {
 
   return (
     <>
-      {/* stairs loading */}
-
       <div
         ref={fullScreenNavRef}
         id="full-screen-nav"
-        className="full-screen-nav h-screen w-full absolute top-0 z-9999  font-[font-lausanne-300] overflow-hidden"
+        className="full-screen-nav h-screen w-full hidden absolute top-0 z-9999  font-[font-lausanne-300] overflow-hidden"
       >
-        <div className="flex items-center justify-center h-screen w-full fixed -z-50">
-          <div className="menu-stair w-1/5 h-full bg-black" />
-          <div className="menu-stair w-1/5 h-full bg-black" />
-          <div className="menu-stair w-1/5 h-full bg-black" />
-          <div className="menu-stair w-1/5 h-full bg-black" />
-          <div className="menu-stair w-1/5 h-full bg-black" />
+        <div className="h-screen w-full fixed inset-0">
+          <div className="h-full w-full flex">
+            <div className="menu-stair w-1/5 h-full bg-black" />
+            <div className="menu-stair w-1/5 h-full bg-black" />
+            <div className="menu-stair w-1/5 h-full bg-black" />
+            <div className="menu-stair w-1/5 h-full bg-black" />
+            <div className="menu-stair w-1/5 h-full bg-black" />
+          </div>
         </div>
 
         <div
           ref={fullNavLinkRef}
-          className="overflow-hidden h-screen w-full z-99999 "
+          className="overflow-hidden h-screen w-full relative"
         >
           {/* top section */}
           <div className="navLink flex justify-between items-start p-2">
             <div className="text-white relative">
-             <h2 className="text-[7vw] font-[font-lausanne-300]">GS</h2>
+              <h2 className="text-[7vw] font-[font-lausanne-300]">GS</h2>
             </div>
 
             <div
@@ -93,7 +92,7 @@ const FullScreenNav = () => {
 
           <div
             id="all-menu"
-            className="flex items-center justify-center flex-col mt-[30vw] md:mt-0"
+            className="flex items-center justify-center flex-col mt-[30vw] md:mt-0 overflow-hidden"
           >
             <div
               onClick={() => setIsNavbarOpen(false)}
@@ -199,7 +198,7 @@ const FullScreenNav = () => {
 
             <div
               onClick={() => setIsNavbarOpen(false)}
-              className="link origin-top border-t text-white w-full  border-gray-400 cursor-pointer relative"
+              className="link origin-top border-t text-white w-full  border-gray-400 cursor-pointer relative "
             >
               <a href="https://gauravblogs.vercel.app/" target="_blank">
                 <h1 className="font-[font-lausanne-500] leading-[16vw]  text-[16vw] md:text-[8vw] md:leading-[8vw] text-center">
@@ -231,7 +230,7 @@ const FullScreenNav = () => {
             </div>
           </div>
 
-          <div className="navLink  flex w-full justify-between items-center mt-[12vw]  text-white px-2 absolute z-20 bottom-0">
+          <div className="navLink  flex w-full justify-between items-center mt-[12vw]  text-white px-2 absolute bottom-0 ">
             <IndiaTime />
             <div className="flex items-center gap-8  *:hover:text-[#D3FD50]">
               <a target="_blank" href="https://github.com/TheGauravsahu">
