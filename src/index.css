@@ -1,5 +1,38 @@
 @import "tailwindcss";
 
+@theme {
+  --font-sans: "Inter", sans-serif;
+  --font-display: "Geist", sans-serif;
+  --font-tech: "Space Grotesk", sans-serif;
+  --font-hand: "Architects Daughter", cursive;
+
+  --color-bg-dark: #070312;
+  --color-neon-violet: #a78bfa;
+  --color-neon-blue: #60a5fa;
+  --color-neon-pink: #f472b6;
+
+  --animate-orbit-cw: orbit-cw 25s linear infinite;
+  --animate-orbit-ccw: orbit-ccw 25s linear infinite;
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+  @keyframes orbit-cw {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  @keyframes orbit-ccw {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(-360deg);
+    }
+  }
+}
+
 @font-face {
   font-family: font-lausanne-300;
   src: url("./assets/fonts/Lausanne-300.woff2");
@@ -10,7 +43,67 @@
 }
 
 body {
+  background-color: #070312;
+  color: #f3f4f6;
+  font-family: "Inter", sans-serif;
   overflow-x: hidden;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(17, 10, 36, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(167, 139, 250, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.glass-panel:hover {
+  border-color: rgba(167, 139, 250, 0.25);
+  box-shadow:
+    0 8px 32px 0 rgba(167, 139, 250, 0.05),
+    inset 0 0 12px rgba(167, 139, 250, 0.05);
+}
+
+.glass-card {
+  background: rgba(22, 13, 46, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(167, 139, 250, 0.08);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(167, 139, 250, 0.25);
+  box-shadow: 0 12px 40px 0 rgba(167, 139, 250, 0.08);
+}
+
+/* Glowing effects */
+.purple-glow {
+  filter: drop-shadow(0 0 25px rgba(167, 139, 250, 0.45));
+}
+
+.blue-glow {
+  filter: drop-shadow(0 0 25px rgba(96, 165, 250, 0.45));
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #070312;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(167, 139, 250, 0.2);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(167, 139, 250, 0.4);
 }
 
 .moveX {
@@ -39,4 +132,3 @@ body {
     transform: translateX(-100%);
   }
 }
-

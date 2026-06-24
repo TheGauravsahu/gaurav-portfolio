@@ -6,6 +6,7 @@ import Navbar from "./components/common/Navbar";
 import FullScreenNav from "./components/common/FullScreenNav";
 import { ReactLenis } from "lenis/react";
 import Gallary from "./pages/Gallary";
+import Lab from "./pages/Lab";
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/gallary" element={<Gallary />} />
+        <Route path="/lab" element={<Lab />} />
       </Routes>
     </div>
   );
