@@ -1,6 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 
 const StairLoading = ({ children }) => {
@@ -8,10 +8,19 @@ const StairLoading = ({ children }) => {
   const stairParentRef = useRef(null);
   const pageRef = useRef(null);
 
+  useEffect(() => () => {
+    document.documentElement.classList.remove("page-transitioning");
+  }, []);
+
   useGSAP(
     function () {
-      const tl = gsap.timeline();
+      document.documentElement.classList.add("page-transitioning");
 
+      const tl = gsap.timeline({
+        onComplete: () => {
+          document.documentElement.classList.remove("page-transitioning");
+        },
+      });
       tl.to(stairParentRef.current, {
         display: "block",
       });
@@ -49,8 +58,8 @@ const StairLoading = ({ children }) => {
 
   return (
     <>
-      <div ref={stairParentRef} className="h-screen  w-full fixed z-10 top-0">
-        <div className="h-full flex w-full">
+      <div ref={stairParentRef} className="page-transition-overlay fixed z-10">
+        <div className="page-transition-panels">
           <div className="stair h-full w-1/5 bg-black"></div>
           <div className="stair h-full w-1/5 bg-black"></div>
           <div className="stair h-full w-1/5 bg-black"></div>
