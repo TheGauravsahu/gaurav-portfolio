@@ -568,8 +568,12 @@ button:focus-visible {
   justify-content: space-between;
   align-items: start;
 }
+.listening-heading .section-number {
+  display: block;
+  margin-bottom: clamp(16px, 2.5vw, 28px);
+}
 .listening-heading h2 {
-  margin-bottom: 3vw;
+  margin: 0 0 3vw -0.06em;
 }
 .listening-intro {
   max-width: 420px;
