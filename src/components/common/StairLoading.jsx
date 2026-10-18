@@ -7,7 +7,6 @@ const StairLoading = ({ children }) => {
   const currentPath = useLocation().pathname;
   const stairParentRef = useRef(null);
   const pageRef = useRef(null);
-  const isFirstMount = useRef(true);
 
   useEffect(() => () => {
     document.documentElement.classList.remove("page-transitioning");
@@ -15,11 +14,6 @@ const StairLoading = ({ children }) => {
 
   useGSAP(
     function () {
-      if (isFirstMount.current) {
-        isFirstMount.current = false;
-        return;
-      }
-
       document.documentElement.classList.add("page-transitioning");
 
       const tl = gsap.timeline({
@@ -55,8 +49,8 @@ const StairLoading = ({ children }) => {
 
       gsap.from(pageRef.current, {
         opacity: 0,
-        delay: 0.8,
-        scale: 1.05,
+        delay: 1.3,
+        scale: 1.2,
       });
     },
     [currentPath],
@@ -64,11 +58,7 @@ const StairLoading = ({ children }) => {
 
   return (
     <>
-      <div
-        ref={stairParentRef}
-        className="page-transition-overlay fixed z-10"
-        style={{ display: "none" }}
-      >
+      <div ref={stairParentRef} className="page-transition-overlay fixed z-10">
         <div className="page-transition-panels">
           <div className="stair h-full w-1/5 bg-black"></div>
           <div className="stair h-full w-1/5 bg-black"></div>
