@@ -22,9 +22,6 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: "DM Sans", sans-serif;
-  transition:
-    background-color 0.35s ease,
-    color 0.35s ease;
 }
 a {
   color: inherit;
@@ -43,16 +40,6 @@ a {
   border-bottom: 1px solid var(--line);
   position: relative;
   z-index: 3;
-}
-.app-shell,
-.site-header,
-.project-info,
-.interest-row,
-.gallery-card figcaption {
-  transition:
-    background-color 0.35s ease,
-    color 0.35s ease,
-    border-color 0.35s ease;
 }
 .wordmark {
   font-size: 15px;
