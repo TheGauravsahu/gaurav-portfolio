@@ -619,10 +619,9 @@ function App() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
 
     const animationContext = gsap.context(() => {
-      gsap.fromTo(
+      gsap.from(
         ".hero-copy > *, .page-intro > *",
-        { y: 16, opacity: 0.2 },
-        { y: 0, opacity: 1, duration: 0.45, stagger: 0.08, ease: "power2.out" },
+        { y: 14, duration: 0.35, stagger: 0.05, ease: "power2.out", clearProps: "transform" },
       );
 
       gsap.utils.toArray("[data-reveal]").forEach((element) => {
@@ -640,19 +639,23 @@ function App() {
       });
     }, pageRef);
 
-    const timer = setTimeout(() => {
-      ScrollTrigger.refresh();
-    }, 200);
+    let refreshTimeout;
+    const debouncedRefresh = () => {
+      clearTimeout(refreshTimeout);
+      refreshTimeout = setTimeout(() => {
+        ScrollTrigger.refresh();
+      }, 150);
+    };
 
     const resizeObserver = new ResizeObserver(() => {
-      ScrollTrigger.refresh();
+      debouncedRefresh();
     });
     if (pageRef.current) {
       resizeObserver.observe(pageRef.current);
     }
 
     return () => {
-      clearTimeout(timer);
+      clearTimeout(refreshTimeout);
       resizeObserver.disconnect();
       animationContext.revert();
     };
