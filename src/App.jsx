@@ -619,9 +619,10 @@ function App() {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return undefined;
 
     const animationContext = gsap.context(() => {
-      gsap.from(
+      gsap.fromTo(
         ".hero-copy > *, .page-intro > *",
-        { y: 14, duration: 0.35, stagger: 0.05, ease: "power2.out", clearProps: "transform" },
+        { y: 32, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.85, stagger: 0.13, ease: "power3.out", delay: 0.12 },
       );
 
       gsap.utils.toArray("[data-reveal]").forEach((element) => {
