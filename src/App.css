@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;1,500;1,600&display=swap");
+/* Google Fonts loaded asynchronously via <link rel="preload"> in index.html */
 
 :root {
   --ink: #171717;
@@ -33,7 +33,7 @@ a {
 .app-shell {
   min-height: 100vh;
   padding: 0 4.2vw;
-  overflow: hidden;
+  overflow-x: clip;
 }
 .site-header {
   height: 92px;

@@ -4,7 +4,6 @@ import { createPortal } from "react-dom";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Lenis from "lenis";
-import "lenis/dist/lenis.css";
 import portrait from "./assets/images/11.jpeg";
 import momentOne from "./assets/images/1.jpeg";
 import momentTwo from "./assets/images/6.jpeg";
@@ -125,8 +124,12 @@ function usePlaylist() {
 
 function PlaylistContent() {
   const { status, data, message } = usePlaylist();
+  // Start with null — no video pre-selected, so nothing autoplays on page load
   const [selectedVideoId, setSelectedVideoId] = useState(null);
-  const selectedVideo = data?.videos?.find((video) => video.id === selectedVideoId) || data?.videos?.[0];
+  // Only resolve to a video object when the user has explicitly picked one
+  const selectedVideo = selectedVideoId
+    ? data?.videos?.find((video) => video.id === selectedVideoId)
+    : null;
 
   return (
     <div className="playlist-content">
@@ -345,12 +348,12 @@ function Menu({ onClose }) {
 
 function Home() {
   return (
-    <main>
+    <main data-scroll-section>
       <section className="hero-section" id="home">
-        <div className="hero-copy">
+        <div className="hero-copy" data-scroll data-scroll-speed="1">
           <p className="eyebrow">Student at DPS Kaluahi · India</p>
           <h1>Just being<br /><em>Gaurav.</em></h1>
-          <p className="hero-intro">
+          <p className="hero-intro" data-scroll data-scroll-speed="0.5">
             A student, a daydreamer, and someone who is always up for a good story—
             on screen or somewhere new.
           </p>
@@ -359,7 +362,7 @@ function Home() {
           <span>( A LITTLE INTRODUCTION )</span>
           <a className="scroll-cue" href="#about">Scroll to get to know me <b>↓</b></a>
         </div>
-        <div className="hero-mark" aria-hidden="true">G<span>.</span></div>
+        <div className="hero-mark" aria-hidden="true" data-scroll data-scroll-speed="-2">G<span>.</span></div>
       </section>
 
       <section className="statement" id="about">
@@ -381,8 +384,14 @@ function Home() {
           <Link className="work-note" to="/interests">( a few favourites ↗ )</Link>
         </div>
         <div className="project-list">
-          {moments.map((moment) => (
-            <article className="project" key={moment.number} data-reveal>
+          {moments.map((moment, i) => (
+            <article
+              className="project"
+              key={moment.number}
+              data-reveal
+              data-scroll
+              data-scroll-speed={i === 1 ? "1.5" : "0.5"}
+            >
               <div className="project-image">
                 <img src={moment.image} alt={moment.alt} loading="lazy" />
                 <span>{moment.number}</span>
@@ -402,7 +411,7 @@ function Home() {
       <section className="about-section">
         <span className="section-number">03 / A BIT MORE</span>
         <div className="about-grid">
-          <div className="about-photo" data-reveal>
+          <div className="about-photo" data-reveal data-scroll data-scroll-speed="0.8">
             <img src={portrait} alt="Gaurav Sahu" loading="lazy" />
             <span className="photo-caption">THAT’S ME, BY THE WAY</span>
           </div>
@@ -574,13 +583,30 @@ function App() {
 
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const lenis = prefersReducedMotion
-      ? null
-      : new Lenis({ anchors: true, autoRaf: true, lerp: 0.09, smoothWheel: true });
+    if (prefersReducedMotion) return undefined;
+
+    const lenis = new Lenis({
+      lerp: 0.09,
+      smoothWheel: true,
+      smoothTouch: false,
+      autoRaf: false,
+    });
     lenisRef.current = lenis;
 
+    let rafId;
+    function raf(time) {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    }
+    rafId = requestAnimationFrame(raf);
+
+    // Keep GSAP ScrollTrigger in sync
+    lenis.on("scroll", ScrollTrigger.update);
+
     return () => {
-      lenis?.destroy();
+      cancelAnimationFrame(rafId);
+      lenis.off("scroll", ScrollTrigger.update);
+      lenis.destroy();
       lenisRef.current = null;
     };
   }, []);
@@ -595,8 +621,8 @@ function App() {
     const animationContext = gsap.context(() => {
       gsap.fromTo(
         ".hero-copy > *, .page-intro > *",
-        { y: 32, opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.85, stagger: 0.13, ease: "power3.out", delay: 0.12 },
+        { y: 16, opacity: 0.2 },
+        { y: 0, opacity: 1, duration: 0.45, stagger: 0.08, ease: "power2.out" },
       );
 
       gsap.utils.toArray("[data-reveal]").forEach((element) => {
@@ -614,7 +640,22 @@ function App() {
       });
     }, pageRef);
 
-    return () => animationContext.revert();
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 200);
+
+    const resizeObserver = new ResizeObserver(() => {
+      ScrollTrigger.refresh();
+    });
+    if (pageRef.current) {
+      resizeObserver.observe(pageRef.current);
+    }
+
+    return () => {
+      clearTimeout(timer);
+      resizeObserver.disconnect();
+      animationContext.revert();
+    };
   }, [location.pathname]);
 
   return (
